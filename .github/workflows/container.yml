@@ -7,13 +7,15 @@ on:
     paths:
       - 'packages/container/**'
 
+on: workflow_dispatch
+
 defaults:
   run:
     working-directory: packages/container
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
