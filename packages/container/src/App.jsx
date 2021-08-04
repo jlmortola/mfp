@@ -1,5 +1,6 @@
 import React from 'react'
+import MarketingModule from 'components/MarketingModule'
 
-const App = () => <h1>this is Container</h1>
+const App = () => <MarketingModule />
 
 export default App
