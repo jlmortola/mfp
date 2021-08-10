@@ -2,12 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import { mount } from 'auth/Auth'
 import { useHistory } from 'react-router-dom'
 
-const MarketingModule = () => {
+const AuthModule = ({ onSignIn }) => {
   const ref = useRef()
   const history = useHistory()
 
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
+      onSignIn,
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: nextPathname }) => {
         if (history.location.pathname !== nextPathname) history.push(nextPathname)
@@ -19,4 +20,4 @@ const MarketingModule = () => {
   return <div ref={ref} />
 }
 
-export default MarketingModule
+export default AuthModule
