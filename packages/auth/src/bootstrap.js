@@ -19,4 +19,4 @@ export const mount = (element, { defaultHistory, initialPath, onNavigate }) => {
   })
 }
 
-if (process.env.NODE_ENV === 'development') mount(document.getElementById('marketing-dev'), { defaultHistory: createBrowserHistory() })
+if (process.env.NODE_ENV === 'development') mount(document.getElementById('auth-dev'), { defaultHistory: createBrowserHistory() })
