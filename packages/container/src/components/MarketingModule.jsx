@@ -10,7 +10,7 @@ const MarketingModule = () => {
     const { onParentNavigate } = mount(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: nextPathname}) => {
-        if (history.pathname !== nextPathname) history.push(nextPathname)
+        if (history.location.pathname !== nextPathname) history.push(nextPathname)
       } 
     })
     history.listen(onParentNavigate)
