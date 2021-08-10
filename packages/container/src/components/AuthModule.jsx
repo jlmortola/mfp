@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { mount } from 'marketing/Marketing'
+import { mount } from 'auth/Auth'
 import { useHistory } from 'react-router-dom'
 
 const MarketingModule = () => {
