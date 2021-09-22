@@ -1,5 +1,5 @@
 
-name: Pull Request Comment Trigger Test
+name: Pull Request Comment Trigger
 on:
   issue_comment:
     types: [created]
@@ -24,4 +24,6 @@ jobs:
       - run: |
           echo "Comment on PR #${{ github.event.issue.number }}"
           echo "Comment on PR #${{ github.event }}"
+          echo 
+          echo "branch #${{ !github.event }}"
 
