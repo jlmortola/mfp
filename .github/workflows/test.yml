@@ -1,5 +1,5 @@
 
-name: Pull Request Comment Trigger Test
+name: Pull Request Comment Trigger
 on:
   issue_comment:
     types: [created]
@@ -22,6 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Comment on PR #${{ github.event.issue.number }}"
-          echo "Comment on PR #${{ github.event }}"
+          echo "Comment on PR: ${{ github.event.issue.number }}"
+          echo "github.event: ${{ github.event }}"
+          echo "github.event.issue.pull_request: ${{  github.event.issue.pull_request }}"
+          echo "branch ${GITHUB_REF##*/}"
+          echo running on branch ${GITHUB_REF##*/}
 
