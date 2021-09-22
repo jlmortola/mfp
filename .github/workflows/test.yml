@@ -1,0 +1,27 @@
+
+name: Pull Request Comment Trigger Test
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create deployment
+        id: create_deployment
+        uses: alexjurkiewicz/pr-comment-github-deployment@master
+        with:
+          trigger_phrase: "#deploy"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo running on branch ${GITHUB_REF##*/}
+  pr_commented:
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+          echo "Comment on PR #${{ github.event }}"
+
