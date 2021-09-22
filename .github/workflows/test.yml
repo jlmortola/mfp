@@ -15,7 +15,13 @@ jobs:
           trigger_phrase: "#deploy"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo running on branch ${GITHUB_REF##*/}
+      - run: |
+          echo running on branch ${GITHUB_REF##*/}
+          echo "Comment on PR: ${{ github.event.issue.number }}"
+          echo "github.event: ${{ github.event }}"
+          echo "github.event.issue.pull_request: ${{  github.event.issue.pull_request }}"
+          echo "branch: ${GITHUB_REF##*/}"
+          echo running on branch ${GITHUB_REF##*/}
   pr_commented:
     name: PR comment
     if: ${{ github.event.issue.pull_request }}
@@ -25,6 +31,6 @@ jobs:
           echo "Comment on PR: ${{ github.event.issue.number }}"
           echo "github.event: ${{ github.event }}"
           echo "github.event.issue.pull_request: ${{  github.event.issue.pull_request }}"
-          echo "branch ${GITHUB_REF##*/}"
+          echo "branch: ${GITHUB_REF##*/}"
           echo running on branch ${GITHUB_REF##*/}
 
